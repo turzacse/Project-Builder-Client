@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { CiSquareMore } from "react-icons/ci";
+import { MdMore } from "react-icons/md";
+import { MdBrowserUpdated } from "react-icons/md";
+import { MdAutoDelete } from "react-icons/md";
+
+
+
 
 const Card = () => {
     const [project, setProject] = useState([]);
@@ -23,9 +30,10 @@ const Card = () => {
                         <figure><img className="shadow-2xl h-[200px] w-full rounded-xl" src={item.download_url || item.img} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{item.author || item.name}</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
-                            <div className="card-actions justify-end">
-                                <Link  to={`/details/${item._id}`} className="btn bg-yellow-200">Explore More</Link>
+                            <div className="card-actions justify-evenly">
+                                <Link  to={`/details/${item._id}`} className="btn bg-yellow-200 text-2xl text-green-500"><MdMore/></Link>
+                                <Link  to={`/details/${item._id}`} className="btn bg-yellow-200 text-2xl"><MdBrowserUpdated/></Link>
+                                <Link className="btn bg-yellow-200 text-2xl text-red-500"><MdAutoDelete/></Link>
                             </div>
                         </div>
                     </div>
