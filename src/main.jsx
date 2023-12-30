@@ -8,6 +8,7 @@ import "./index.css";
 import Main from './Layout/Main.jsx';
 import Project from './Pages/Projects/Project.jsx';
 import AddProject from './Pages/AddProject/AddProject.jsx';
+import Details from './Pages/DetailsPage/Details.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
       {
         path: '/add',
         element: <AddProject/>
+      },
+      {
+        path: '/details/:id',
+        element: <Details/>,
+        loader: async({params}) => await fetch(`http://localhost:5001/project/${params.id}`)
       }
     ]
   },

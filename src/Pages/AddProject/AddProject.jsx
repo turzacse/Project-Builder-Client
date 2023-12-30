@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 const AddProject = () => {
 
@@ -35,7 +36,7 @@ const AddProject = () => {
 
     console.log(img);
     //console.log(handleUpload);
-    const handleAddProduct = e =>{
+    const handleAddProject = e =>{
         e.preventDefault();
 
         const form = e.target;
@@ -43,36 +44,46 @@ const AddProject = () => {
         const name = form.name.value;
         const description = form.description.value;
 
+        if (!img) {
+            console.log("Image upload in progress. Please wait.");
+            Swal.fire({
+                icon: 'success',
+                title: 'Image upload in progress. Please wait.',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            return;
+        }
         const project = {name, description,img}
 
         console.log(project);
         //send data 
-        // fetch('https://server-side-sepia-eight.vercel.app/product',{
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type':'application/json'
-        //     },
-        //     body: JSON.stringify(product)
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log(data);
-        //     if(data.insertedId){
-        //         Swal.fire({
-        //             icon: 'success',
-        //             title: 'Your product has been added',
-        //             showConfirmButton: false,
-        //             timer: 1500
-        //           })
-        //     }
-        // })
+        fetch('http://localhost:5001/project',{
+            method: 'POST',
+            headers: {
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(project)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Your product has been added',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
         // e.target.reset();
     }
     return (
         <div>
             <div className="bg-base-200 p-10 md:w-1/2 w-full mx-auto shadow-2xl">
                 <h3 className="text-2xl font-semibold text-center mb-10">Add A New Project</h3>
-                <form onSubmit={handleAddProduct}>
+                <form onSubmit={handleAddProject}>
 
                     <input
                                 type="file"
@@ -86,7 +97,7 @@ const AddProject = () => {
 
                     <input type="text" name="description" placeholder="Project Description" className="input input-bordered w-full my-4" required />
 
-                    <input type="submit" className="btn w-full bg-success" value="Add a product" />
+                    <input type="submit" className="btn w-full bg-yellow-200" value="Add a project" />
 
                 </form>
             </div>

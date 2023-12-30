@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Card = () => {
     const [project, setProject] = useState([]);
 
     useEffect(() => {
-        fetch('https://picsum.photos/v2/list?page=1&limit=6')
+        fetch('http://localhost:5001/project')
             .then(res => res.json())
             .then(data => {
                 setProject(data);
@@ -19,12 +20,12 @@ const Card = () => {
                     <div className="">
 
                     <div className="card-compact bg-base-100 shadow-xl">
-                        <figure><img className="shadow-2xl rounded-xl" src={item.download_url} alt="Shoes" /></figure>
+                        <figure><img className="shadow-2xl h-[200px] w-full rounded-xl" src={item.download_url || item.img} alt="Shoes" /></figure>
                         <div className="card-body">
-                            <h2 className="card-title">{item.author}</h2>
+                            <h2 className="card-title">{item.author || item.name}</h2>
                             <p>If a dog chews shoes whose shoes does he choose?</p>
                             <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Explore More</button>
+                                <Link  to={`/details/${item._id}`} className="btn bg-yellow-200">Explore More</Link>
                             </div>
                         </div>
                     </div>
