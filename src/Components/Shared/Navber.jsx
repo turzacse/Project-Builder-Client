@@ -2,8 +2,8 @@ import React from 'react';
 
 const Navber = () => {
     return (
-        <div className='bg-red-500'>
-            <div className="navbar bg-yellow-200 pr-3">
+        <div className='bg-yellow-200'>
+            <div className="navbar pr-3">
                 <div className="navbar-start">
 
                 </div>

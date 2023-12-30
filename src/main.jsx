@@ -7,6 +7,7 @@ import {
 import "./index.css";
 import Main from './Layout/Main.jsx';
 import Project from './Pages/Projects/Project.jsx';
+import AddProject from './Pages/AddProject/AddProject.jsx';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element:<Project/>
+      },
+      {
+        path: '/add',
+        element: <AddProject/>
       }
     ]
   },
