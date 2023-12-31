@@ -27,11 +27,12 @@ const Details = () => {
     console.log(selected[0]);
 
     return (
-        <div className='my-5 md:mx-20 ml-[100px]'>
-            details ccard
-            <div className="card bg-base-100 shadow-xl">
-                <figure><img className="rounded-xl md:h-[400px] md:w-[600px]" src={selected[0]?.download_url} alt="Shoes" /></figure>
+        <div className='my-5 md:mx-20 ml-[80px]'>
+            {/* details ccard */}
+            <div className=" bg-base-100 shadow-xl">
+                <figure><img className="rounded-xl md:h-[400px] md:w-[600px]" src={selected[0]?.img} alt="Shoes" /></figure>
                 <div className="card-body">
+                    <h2 className='lg:text-5xl text-2xl font-bold md:text-3xl' >{selected[0]?.projectName}</h2>
                     <h2 className="card-title">{selected[0]?.name}</h2>
                     <div className="md:flex justify-between">
                         {/* <h3><span className="font-semibold">Brand:</span> {brand}</h3> <h3 className="btn bg-success">{price}TK</h3> */}

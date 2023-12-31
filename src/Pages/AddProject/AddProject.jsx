@@ -5,7 +5,7 @@ const AddProject = () => {
 
     const image_hosting_key = 'https://api.imgbb.com/1/upload?key=39cd3de230380fc39b116f0d1af689bd';
 
-    const [img, setImg]= useState('')
+    const [img, setImg] = useState('')
     const handleUpload = async (e) => {
         e.preventDefault();
 
@@ -36,11 +36,12 @@ const AddProject = () => {
 
     console.log(img);
     //console.log(handleUpload);
-    const handleAddProject = e =>{
+    const handleAddProject = e => {
         e.preventDefault();
 
         const form = e.target;
 
+        const projectName = form.projectName.value;
         const name = form.name.value;
         const description = form.description.value;
 
@@ -51,33 +52,33 @@ const AddProject = () => {
                 title: 'Image upload in progress. Please wait.',
                 showConfirmButton: false,
                 timer: 1500
-              })
+            })
             return;
         }
-        const project = {name, description,img}
+        const project = { projectName, name, description, img }
 
         console.log(project);
         //send data 
-        fetch('http://localhost:5001/project',{
+        fetch('http://localhost:5001/project', {
             method: 'POST',
             headers: {
-                'content-type':'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(project)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.insertedId){
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Your product has been added',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-            }
-        })
-        // e.target.reset();
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Your product has been added',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+        e.target.reset();
     }
     return (
         <div>
@@ -86,12 +87,14 @@ const AddProject = () => {
                 <form onSubmit={handleAddProject}>
 
                     <input
-                                type="file"
-                                required
-                                className="mt-4"
-                                accept="image/*"
-                                onChange={handleUpload} // Handle the file upload
+                        type="file"
+                        required
+                        className="mt-4"
+                        accept="image/*"
+                        onChange={handleUpload} // Handle the file upload
                     />
+
+                    <input type="text" name="projectName" placeholder="Project Name" className="input input-bordered w-full my-4" required />
 
                     <input type="text" name="name" placeholder="Author Name" className="input input-bordered w-full my-4" required />
 

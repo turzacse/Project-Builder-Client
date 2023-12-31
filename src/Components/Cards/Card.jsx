@@ -60,8 +60,10 @@ const Card = () => {
                     <div className="">
 
                     <div className="card-compact bg-base-100 shadow-xl">
+                        
                         <figure><img className="shadow-2xl h-[200px] w-full rounded-xl" src={item.download_url || item.img} alt="Shoes" /></figure>
                         <div className="card-body">
+                        <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold">{item.projectName}</h2>
                             <h2 className="card-title">{item.author || item.name}</h2>
                             <div className="card-actions justify-evenly">
                                 <Link  to={`/details/${item._id}`} className="btn bg-yellow-200 text-2xl text-green-500"><MdMore/></Link>

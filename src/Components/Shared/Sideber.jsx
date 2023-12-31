@@ -18,15 +18,22 @@ const Sideber = () => {
 
             
 
-            <ul className='menu z-10 md:fixed flex flex-col justify-between overflow-x-hidden space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform'>
+            <ul className='menu z-10 md:fixed flex flex-col justify-between overflow-x-hidden md:space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform'>
             
                 <div>
                 <img className='h-[27px] w-[76px] mx-auto mb-12' src="https://i.ibb.co/SVSSJTB/logo.png" alt="" />
-                    <li><NavLink to='/'><FaDatabase /> My Project</NavLink></li>
+                <div>
+                <li><NavLink to='/'><FaDatabase /> My Project</NavLink></li>
                     <li><NavLink to='/dashboard/myparcel'><RiAppsFill /> Sample Project</NavLink></li>
                     <hr />
                     <li><NavLink to='/dashboard/profile'><TbApps /> Apps</NavLink></li>
                     <li><NavLink to='/dashboard/profile'><MdSlowMotionVideo /> Intro to Necleo</NavLink></li>
+
+                </div>
+                {/* <div className='md:hidden block'>
+                    <li><NavLink to='/dashboard/book'><IoIosHelpCircleOutline /> Help & Support</NavLink></li>
+                    <li><NavLink to='/dashboard/myparcel'><RiFeedbackFill /> Feedback</NavLink></li>
+                </div> */}
                 </div>
 
                 <div className=''>
