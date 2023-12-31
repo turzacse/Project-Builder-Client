@@ -59,7 +59,7 @@ const AddProject = () => {
 
         console.log(project);
         //send data 
-        fetch('http://localhost:5001/project', {
+        fetch('https://necleo-project-builder.vercel.app/project', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

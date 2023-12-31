@@ -10,6 +10,8 @@ import Project from './Pages/Projects/Project.jsx';
 import AddProject from './Pages/AddProject/AddProject.jsx';
 import Details from './Pages/DetailsPage/Details.jsx';
 import Update from './Pages/UpdatePage/Update.jsx';
+import Sample from './Pages/SampleProject/Sample.jsx';
+import Error from './Pages/ErrorPage/Error.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,17 +27,25 @@ const router = createBrowserRouter([
         element: <AddProject/>
       },
       {
+        path: '/sample',
+        element: <Sample/>
+      },
+      {
         path: '/details/:id',
         element: <Details/>,
-        loader: async({params}) => await fetch(`http://localhost:5001/project/${params.id}`)
+        loader: async({params}) => await fetch(`https://necleo-project-builder.vercel.app/project/${params.id}`)
       },
       {
         path: '/update/:id',
         element: <Update/>,
-        loader: async({params}) => await fetch(`http://localhost:5001/project/${params.id}`)
+        loader: async({params}) => await fetch(`https://necleo-project-builder.vercel.app/project/${params.id}`)
       },
     ]
   },
+  {
+    path: '*',
+    element: <Error/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -11,7 +11,7 @@ const Update = () => {
     const [isloading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5001/project')
+        fetch('https://necleo-project-builder.vercel.app/project')
             .then(res => res.json())
             .then(data => {
                 setProduct(data);
@@ -42,7 +42,7 @@ const Update = () => {
 
         console.log(project);
 
-        fetch(`http://localhost:5001/project/${selected[0]?._id}`,{
+        fetch(`https://necleo-project-builder.vercel.app/project/${selected[0]?._id}`,{
             method: 'PUT',
             headers: {
                 'content-type':'application/json'

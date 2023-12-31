@@ -12,7 +12,7 @@ const Card = () => {
     const [project, setProject] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5001/project')
+        fetch('https://necleo-project-builder.vercel.app/project')
             .then(res => res.json())
             .then(data => {
                 setProject(data);
@@ -32,7 +32,7 @@ const Card = () => {
           }).then((result) => {
             if (result.isConfirmed) {
               
-             fetch(`http://localhost:5001/project/${_id}`,{
+             fetch(`https://necleo-project-builder.vercel.app/project/${_id}`,{
                 method: 'DELETE'
              })
              .then(res => res.json())

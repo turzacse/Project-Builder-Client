@@ -24,21 +24,17 @@ const Sideber = () => {
                 <img className='h-[27px] w-[76px] mx-auto mb-12' src="https://i.ibb.co/SVSSJTB/logo.png" alt="" />
                 <div>
                 <li><NavLink to='/'><FaDatabase /> My Project</NavLink></li>
-                    <li><NavLink to='/dashboard/myparcel'><RiAppsFill /> Sample Project</NavLink></li>
+                    <li><NavLink to='/sample'><RiAppsFill /> Sample Project</NavLink></li>
                     <hr />
-                    <li><NavLink to='/dashboard/profile'><TbApps /> Apps</NavLink></li>
-                    <li><NavLink to='/dashboard/profile'><MdSlowMotionVideo /> Intro to Necleo</NavLink></li>
+                    <li><NavLink to='/Apps'><TbApps /> Apps</NavLink></li>
+                    <li><NavLink to='/Necleo'><MdSlowMotionVideo /> Intro to Necleo</NavLink></li>
 
                 </div>
-                {/* <div className='md:hidden block'>
-                    <li><NavLink to='/dashboard/book'><IoIosHelpCircleOutline /> Help & Support</NavLink></li>
-                    <li><NavLink to='/dashboard/myparcel'><RiFeedbackFill /> Feedback</NavLink></li>
-                </div> */}
                 </div>
 
                 <div className=''>
-                    <li><NavLink to='/dashboard/book'><IoIosHelpCircleOutline /> Help & Support</NavLink></li>
-                    <li><NavLink to='/dashboard/myparcel'><RiFeedbackFill /> Feedback</NavLink></li>
+                    <li><NavLink to='/help'><IoIosHelpCircleOutline /> Help & Support</NavLink></li>
+                    <li><NavLink to='/feedback'><RiFeedbackFill /> Feedback</NavLink></li>
                 </div>
             </ul>
             

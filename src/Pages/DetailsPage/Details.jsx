@@ -10,7 +10,7 @@ const Details = () => {
     const [isloading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5001/project')
+        fetch('https://necleo-project-builder.vercel.app/project')
             .then(res => res.json())
             .then(data => {
                 setProduct(data);

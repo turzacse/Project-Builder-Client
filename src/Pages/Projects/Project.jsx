@@ -14,11 +14,12 @@ const Project = () => {
                 </div>
                 <div className='text-center mt-3'>
                     <h2 className='font-semibold'>Create a new project</h2>
-                    <p>or try a <span className='text-[#FA782F]'>sample project</span></p>
+                    <p>or try a <Link to='/sample' className='text-[#FA782F]'>sample project</Link></p>
                 </div>
             </div>
 
             <div className='mt-10'>
+                <h2 className='text-center text-xl md:text-3xl font-bold text-orange-500 mb-10 '>My Sample Project</h2>
             <Card/>
             </div>
         </div>
