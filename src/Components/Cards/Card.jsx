@@ -67,7 +67,7 @@ const Card = () => {
                             <h2 className="card-title">{item.author || item.name}</h2>
                             <div className="card-actions justify-evenly">
                                 <Link  to={`/details/${item._id}`} className="btn bg-yellow-200 text-2xl text-green-500"><MdMore/></Link>
-                                <Link  to={`/details/${item._id}`} className="btn bg-yellow-200 text-2xl"><MdBrowserUpdated/></Link>
+                                <Link  to={`/update/${item._id}`} className="btn bg-yellow-200 text-2xl"><MdBrowserUpdated/></Link>
                                 <button
                                 onClick={() => handleDelete(item._id)}
                                 className="btn bg-yellow-200 text-2xl text-red-500"><MdAutoDelete/></button>

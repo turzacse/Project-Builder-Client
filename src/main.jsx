@@ -9,6 +9,7 @@ import Main from './Layout/Main.jsx';
 import Project from './Pages/Projects/Project.jsx';
 import AddProject from './Pages/AddProject/AddProject.jsx';
 import Details from './Pages/DetailsPage/Details.jsx';
+import Update from './Pages/UpdatePage/Update.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,12 @@ const router = createBrowserRouter([
         path: '/details/:id',
         element: <Details/>,
         loader: async({params}) => await fetch(`http://localhost:5001/project/${params.id}`)
-      }
+      },
+      {
+        path: '/update/:id',
+        element: <Update/>,
+        loader: async({params}) => await fetch(`http://localhost:5001/project/${params.id}`)
+      },
     ]
   },
 ]);
